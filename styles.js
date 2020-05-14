@@ -5,10 +5,8 @@ const vh = height*0.01;
 const vw = width*0.01;
 
 const styles = {
-    // container
-    Container:{ height, width, justifyContent:"space-between" },
     // content
-    Content:{ width, flex:1 },
+    Content:{ flex:1 },
     // header
     Header:{ width, height:vh*10, backgroundColor:"#F6F6F6", flexDirection:'row' },
     Side:{ height:'100%', justifyContent:"center", alignItems:'center', flex:1 }, 

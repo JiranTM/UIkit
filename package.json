@@ -1,6 +1,7 @@
 {
   "name": "uikit",
   "version": "0.1.0",
+  "main": "index.js",
   "scripts": {
     "android": "react-native run-android --no-packager && react-native start",
     "ios": "react-native run-ios",
@@ -16,6 +17,10 @@
     "clean:web": "gatsby clean",
     "translate": "localiz-cli -f locale.csv -o locale.json",
     "postversion": "react-native-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.jirantm.com/RNModules/uikit"
   },
   "dependencies": {
     "react": "16.11.0",
