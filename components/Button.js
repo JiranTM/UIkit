@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 
 import styles from '../styles'
 
 export default class Button extends Component {
     render() {
-        let buttonTheme = '#3F51B5', buttonFlex = null;
+        let buttonTheme, buttonFlex = null;
         const { light, primary, success, info, warning, danger, dark, bordered, transparent, block, full } = this.props;
         
-        if(light) buttonTheme = '#a9a9a9';
-        if(primary) buttonTheme = '#3F51B5';
-        if(success) buttonTheme = '#5cb85c';
-        if(info) buttonTheme = '#62B1F6';
-        if(warning) buttonTheme = '#f0ad4e';
-        if(danger) buttonTheme = '#d9534f';
-        if(dark) buttonTheme = '#000';
+        if (light) 
+            buttonTheme = '#a9a9a9';
+        else if (primary) 
+            buttonTheme = (Platform.OS === "ios") ? "#007AFF" : '#3F51B5';
+        else if (success) 
+            buttonTheme = '#5cb85c';
+        else if (info) 
+            buttonTheme = '#62B1F6';
+        else if (warning) 
+            buttonTheme = '#f0ad4e';
+        else if (danger) 
+            buttonTheme = '#d9534f';
+        else if (dark) 
+            buttonTheme = '#000';
+        else // (default)
+            buttonTheme = '#3F51B5'
 
         let backgroundColor = buttonTheme
         
@@ -48,7 +57,8 @@ export default class Button extends Component {
                                 : "white",
                         fontWeight: "bold",
                         flex: 1,
-                        textAlign: "center"
+                        textAlign: "center",
+                        fontFamily: (Platform.OS === "ios") ? "System" : (Platform.OS === "android") ? "Roboto_medium" : undefined
                     }
                 }
             )
