@@ -24,10 +24,14 @@ const styles = {
     Row: {flexDirection: "row", flex: 1, alignSelf: "stretch"},
     Col: {flexDirection: "column", flex: 1, alignSelf: "stretch"},
     // toast
-    Toast: {width: "100%", position: "absolute", elevation: 9},
+    Toast: {width: "100%", position: "absolute", elevation: 9, flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: 10, minHeight: 50},
     // root
     Root: {},
-    Item: {marginVertical: 10}
+    Item: {marginVertical: 10},
+    // Textarea
+    Textarea: {color: "#000", paddingLeft: 10, paddingRight: 5, fontSize: 15, textAlignVertical: 'top'},
+    // Badge
+    Badge: {paddingHorizontal: 6, alignSelf: "flex-start", borderRadius: 13.5, height: 27}
 };
 
 export { height, width, vh, vw };
