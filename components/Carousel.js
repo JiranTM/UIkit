@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Carousel from 'react-native-snap-carousel';
+import * as RNCarousel from 'react-native-snap-carousel';
 
 export default class Carousel extends Component {
     render() {
-        return <Carousel {...this.props} />
+        return <RNCarousel {...this.props} />
     }
 }
