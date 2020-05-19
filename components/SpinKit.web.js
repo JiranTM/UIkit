@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as RNSpinKit from 'react-spinkit';
+import RNSpinKit from 'react-spinkit';
 
 export default class SpinKit extends Component {
     render() {

@@ -9,25 +9,24 @@ const styles = {
     Content:{ flex:1 },
     // header
     Header:{ width, height:vh*10, backgroundColor:"#F6F6F6", flexDirection:'row' },
-    Side:{ height:'100%', justifyContent:"center", alignItems:'center', flex:1 }, 
-    Body:{ height:'100%', justifyContent:"center", alignItems:'center', flex:6 },
+    Left:{ alignSelf:"center", alignItems:'flex-start', flex: 1 }, 
+    Right: { alignSelf:"center", alignItems:'flex-end', flex: 1 },
+    Body:{ alignSelf:"center", alignItems:'center', flex: 1 },
     // text
     Text: {},
     H1: {fontSize: 27, lineHeight: 32},
     H2: {fontSize: 24, lineHeight: 27},
     H3: {fontSize: 21, lineHeight: 25},
     // button
-    Button: {paddingVertical: 6, paddingHorizontal: 16, borderWidth: 1, height: 45, flexDirection: "row", elevation: 2, alignItems: 'center', borderRadius: 2, },
+    Button: {paddingVertical: 6, borderWidth: null, height: 45, flexDirection: "row", elevation: 2, borderRadius: 2, shadowColor: '#000', shadowOffset: {width: 0, height: 0}, shadowOpacity: 0.2, shadowRadius: 1.2, alignItems: 'center', justifyContent: "space-between", alignSelf: "flex-start" },
     // radio
     Radio: {color: '#3F51B5'},
     // row, col
     Row: {flexDirection: "row", flex: 1, alignSelf: "stretch"},
     Col: {flexDirection: "column", flex: 1, alignSelf: "stretch"},
-    // toast
-    Toast: {width: "100%", position: "absolute", elevation: 9, flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: 10, minHeight: 50},
     // root
     Root: {},
-    Item: {marginVertical: 10},
+    Item: {borderWidth: 0.5, borderTopWidth: 0, borderRightWidth: 0, borderLeftWidth: 0, borderColor: "#D9D5DC", backgroundColor: 'transparent', flexDirection: 'row', alignItems: 'center', marginLeft: 2},
     // Textarea
     Textarea: {color: "#000", paddingLeft: 10, paddingRight: 5, fontSize: 15, textAlignVertical: 'top'},
     // Badge

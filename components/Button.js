@@ -5,7 +5,7 @@ import styles from '../styles'
 
 export default class Button extends Component {
     render() {
-        let backgroundColor, buttonFlex = null;
+        let backgroundColor, flex = null;
         const { light, primary, success, info, warning, danger, dark, bordered, transparent, block, full } = this.props;
         
         if (light) 
@@ -27,6 +27,8 @@ export default class Button extends Component {
         
         let border = "none";
 
+        let justifyContent = 'space-between'
+
         let alignSelf = 'flex-start'
 
         if (bordered)
@@ -37,10 +39,11 @@ export default class Button extends Component {
         }
         
         if (full) {
-            buttonFlex = 1
+            flex = 1
         }
 
         if (block) {
+            justifyContent = 'center'
             alignSelf = 'stretch'
         }
         
@@ -67,7 +70,8 @@ export default class Button extends Component {
                 style={{...styles.Button, 
                     backgroundColor, 
                     border, 
-                    flex: buttonFlex, 
+                    flex,
+                    justifyContent, 
                     alignSelf,
                 ...this.props.style}}>
                 {children}

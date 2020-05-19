@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as RNCarousel from 'react-native-snap-carousel';
+import RNCarousel from 'react-native-snap-carousel';
 
 export default class Carousel extends Component {
     render() {
