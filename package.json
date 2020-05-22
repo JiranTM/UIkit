@@ -2,51 +2,23 @@
   "name": "uikit",
   "version": "0.1.0",
   "main": "index.js",
-  "scripts": {
-    "android": "react-native run-android --no-packager && react-native start",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint .",
-    "build:android": "cd android && gradlew assembleRelease && cd ../",
-    "clean:android": "cd android && gradlew clean && cd ../",
-    "build:web": "gatsby build",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "web": "gatsby develop",
-    "serve:web": "gatsby serve",
-    "clean:web": "gatsby clean",
-    "translate": "localiz-cli -f locale.csv -o locale.json",
-    "postversion": "react-native-version"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://git.jirantm.com/RNModules/uikit"
   },
   "dependencies": {
-    "react": "16.11.0",
-    "react-native": "0.62.2",
     "react-native-simple-toast": "^1.1.2",
     "react-native-snap-carousel": "git+https://github.com/Windastella/react-native-snap-carousel.git",
     "react-native-spinkit": "^1.5.0",
-    "react-native-swipe-list-view": "git+https://github.com/Windastella/react-native-swipe-list-view.git",
+    "react-native-swipe-list-view": "^3.1.0",
     "react-native-vector-icons": "^6.6.0",
     "react-native-version-check": "^3.4.0",
     "react-native-web": "^0.12.2",
     "react-spinkit": "^3.0.0",
     "react-web-vector-icons": "^1.0.2"
   },
-  "devDependencies": {
-    "@babel/core": "7.9.0",
-    "@babel/runtime": "7.9.2",
-    "@react-native-community/eslint-config": "0.0.5",
-    "babel-jest": "24.9.0",
-    "eslint": "6.8.0",
-    "jest": "24.9.0",
-    "metro-react-native-babel-preset": "0.58.0",
-    "react-native-version": "^4.0.0",
-    "react-test-renderer": "16.11.0"
-  },
-  "jest": {
-    "preset": "react-native"
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "react-native": "^0.62.2"
   }
 }
