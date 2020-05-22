@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Platform} from 'react-native';
 
-import styles from '../styles';
+import styles from '../../styles';
 
 export default class Badge extends Component {
     render() {
