@@ -20,7 +20,6 @@ import Right from './components/Right';
 import Root from './components/Root';
 import Row from './components/Row';
 import SpinKit from './components/SpinKit';
-import SwipeRow from './components/SwipeRow';
 import Text from './components/Text';
 import Textarea from './components/Textarea';
 import Toast from './components/Toast';
@@ -49,7 +48,6 @@ export {
     Root,
     Row,
     SpinKit,
-    SwipeRow,
     Text,
     Textarea,
     Toast,
