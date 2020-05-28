@@ -1,7 +1,6 @@
 import Badge from './components/Badge';
 import Body from './components/Body';
 import Button from './components/Button';
-import Carousel from './components/Carousel';
 import Col from './components/Col';
 import Container from './components/Container';
 import Content from './components/Content';
@@ -21,7 +20,6 @@ import Right from './components/Right';
 import Root from './components/Root';
 import Row from './components/Row';
 import SpinKit from './components/SpinKit';
-import SwipeListView from './components/SwipeListView';
 import SwipeRow from './components/SwipeRow';
 import Text from './components/Text';
 import Textarea from './components/Textarea';
@@ -32,7 +30,6 @@ export {
     Badge,
     Body,
     Button,
-    Carousel,
     Col,
     Container,
     Content,
@@ -52,7 +49,6 @@ export {
     Root,
     Row,
     SpinKit,
-    SwipeListView,
     SwipeRow,
     Text,
     Textarea,
