@@ -59,8 +59,10 @@ export default class Button extends Component {
                         fontWeight: "bold",
                         flex: 1,
                         textAlign: "center",
-                        fontFamily: (Platform.OS === "ios") ? "System" : (Platform.OS === "android") ? "Roboto_medium" : undefined
-                    }
+                        fontFamily: (Platform.OS === "ios") ? "System" : (Platform.OS === "android") ? "Roboto_medium" : undefined,
+                        ...child.props.style
+                    },
+                    ...child.props
                 }
             )
         )

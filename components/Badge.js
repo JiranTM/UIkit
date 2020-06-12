@@ -31,8 +31,10 @@ export default class Badge extends Component {
                         fontSize: 15,
                         lineHeight: Platform.OS === "ios" ? 20 : 24,
                         textAlign: "center",
-                        paddingHorizontal: 3
-                    }
+                        paddingHorizontal: 3,
+                        ...child.props.style
+                    },
+                    ...child.props
                 }
             )
         )
