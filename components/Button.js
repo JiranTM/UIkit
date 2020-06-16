@@ -1,29 +1,44 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 
-import styles from '../styles'
+import styles from '../styles';
+import ThemeContext from './themeContext';
 
 export default class Button extends Component {
     render() {
-        let backgroundColor, flex = null;
-        const { light, primary, success, info, warning, danger, dark, bordered, transparent, block, full } = this.props;
+        let backgroundColor = null, color = null, flex = null;
+        const { light, primary, success, info, warning, danger, dark, bordered, transparent, block, full, disabled } = this.props;
         
-        if (light) 
-            backgroundColor = '#a9a9a9';
-        else if (primary) 
-            backgroundColor = (Platform.OS === "ios") ? "#007AFF" : '#3F51B5';
-        else if (success) 
-            backgroundColor = '#5cb85c';
-        else if (info) 
-            backgroundColor = '#62B1F6';
-        else if (warning) 
-            backgroundColor = '#f0ad4e';
-        else if (danger) 
-            backgroundColor = '#d9534f';
-        else if (dark) 
-            backgroundColor = '#000';
-        else // (default)
-            backgroundColor = (Platform.OS === "ios") ? "#007AFF" : '#3F51B5';
+        if (light) {
+            backgroundColor = styles.buttonLightBg;
+            color = styles.brandLight;
+        } else if (primary) {
+            backgroundColor = styles.buttonPrimaryBg;
+            color = styles.brandPrimary;
+        } else if (success) {
+            backgroundColor = styles.buttonSuccessBg;
+            color = styles.brandSuccess;
+        } else if (info) {
+            backgroundColor = styles.buttonInfoBg;
+            color = styles.brandInfo;
+        } else if (warning) { 
+            backgroundColor = styles.buttonWarningBg;
+            color = styles.brandWarning;
+        } else if (danger) {
+            backgroundColor = styles.buttonDangerBg;
+            color = styles.brandDanger;
+        } else if (dark) {
+            backgroundColor = styles.buttonDarkBg;
+            color = styles.brandDark;
+        } else {
+            backgroundColor = styles.buttonBg;
+            color = styles.brandLight;
+        }
+
+        if (disabled) {
+            backgroundColor = "transparent";
+            color = styles.buttonDisabledBg;
+        }
         
         let border = "none";
 
@@ -53,31 +68,31 @@ export default class Button extends Component {
                     style: {
                         color: (transparent || bordered) 
                             ? backgroundColor 
-                            : (backgroundColor === "#a9a9a9" || backgroundColor === "transparent") 
+                            : (backgroundColor === "transparent") 
                                 ? "black" 
                                 : "white",
-                        fontWeight: "bold",
-                        flex: 1,
-                        textAlign: "center",
-                        fontFamily: (Platform.OS === "ios") ? "System" : (Platform.OS === "android") ? "Roboto_medium" : undefined,
+                        ...styles.ButtonText,
                         ...child.props.style
                     },
-                    ...child.props
                 }
             )
         )
 
         return (
-            <TouchableOpacity {...this.props} 
-                style={{...styles.Button, 
-                    backgroundColor, 
-                    border, 
-                    flex,
-                    justifyContent, 
-                    alignSelf,
-                ...this.props.style}}>
-                {children}
-            </TouchableOpacity>
+            <ThemeContext.Consumer>
+                {value => 
+                    <TouchableOpacity {...this.props} 
+                        style={{...value.Button, 
+                            backgroundColor, 
+                            border, 
+                            flex,
+                            justifyContent, 
+                            alignSelf,
+                        ...this.props.style}}>
+                        {children}
+                    </TouchableOpacity>
+                }
+            </ThemeContext.Consumer>
         )
     }
 }

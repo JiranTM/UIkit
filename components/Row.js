@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import styles from '../styles';
+import ThemeContext from './themeContext';
 
 export default class Row extends Component {
     render() {
@@ -10,9 +10,14 @@ export default class Row extends Component {
         }
 
         return (
-            <View {...this.props} style={{...styles.Row, ...size, ...this.props.style }}>
-                {this.props.children}
-            </View>
+            <ThemeContext.Consumer>
+                {value => 
+                    <View {...this.props} style={{...value.Row, ...size, ...this.props.style }}>
+                        {this.props.children}
+                    </View>
+                }
+            </ThemeContext.Consumer>
+            
         )
     }
 }

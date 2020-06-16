@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 
-import styles from '../styles';
-
 export default class List extends Component {
     render() {
         const {dataArray} = this.props;

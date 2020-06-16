@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View } from 'react-native';
 
-import styles from '../styles';
+import ThemeContext from './themeContext';
 
 export default class Col extends Component {
     render() {
@@ -10,9 +10,14 @@ export default class Col extends Component {
         }
         
         return (
-            <View {...this.props} style={{ ...styles.Col, ...size, ...this.props.style }}>
-                {this.props.children}
-            </View>
+            <ThemeContext.Consumer>
+                {value =>
+                    <View {...this.props} style={{ ...value.Col, ...size, ...this.props.style }}>
+                        {this.props.children}
+                    </View>
+                }
+            </ThemeContext.Consumer>
+            
         )
     }
 }

@@ -14,6 +14,8 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Zocial from 'react-native-vector-icons/Zocial';
 
+import ThemeContext from './themeContext';
+
 export default class Icon extends Component {
     render() {
         switch(this.props.type) {
@@ -34,10 +36,12 @@ export default class Icon extends Component {
             default:                           this.Icon = Ionicons;
         }
 
-        let iconFontSize = Platform.OS === "ios" ? 30 : 28
-
         return (
-            <this.Icon {...this.props} style={{fontSize: iconFontSize, ...this.props.style}} />
+            <ThemeContext.Consumer>
+                {value => 
+                    <this.Icon {...this.props} style={{...value.Icon, ...this.props.style}} />
+                }
+            </ThemeContext.Consumer>
         )
     }
 }

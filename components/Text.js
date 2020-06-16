@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { Text as RNText } from 'react-native';
 
-import styles from '../styles';
+import ThemeContext from './themeContext';
 
 export default class Text extends Component {
     render() {
         return (
-            <RNText {...this.props} style={{...styles.Text, ...this.props.style}}>
-                {this.props.children}
-            </RNText>
+            <ThemeContext.Consumer>
+                {value => 
+                    <RNText {...this.props} style={{ ...value.Text, ...this.props.style }} />
+                }
+            </ThemeContext.Consumer>
         )
     }
 }

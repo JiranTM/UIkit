@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Platform} from 'react-native';
 
 import styles from '../styles';
+import ThemeContext from './themeContext';
 
 export default class Badge extends Component {
     render() {
@@ -9,40 +10,37 @@ export default class Badge extends Component {
         const {primary, warning, info, success, danger} = this.props;
 
         if (primary)
-            backgroundColor = (Platform.OS === "ios") ? "#007AFF" : '#3F51B5';
+            backgroundColor = styles.buttonPrimaryBg;
         else if (warning)
-            backgroundColor = "#f0ad4e";
+            backgroundColor = styles.buttonWarningBg;
         else if (info)
-            backgroundColor = "#62B1F6";
+            backgroundColor = styles.buttonInfoBg;
         else if (success)
-            backgroundColor = "#5cb85c";
+            backgroundColor = styles.buttonSuccessBg;
         else if (danger)
-            backgroundColor = '#d9534f';
-        else
-            backgroundColor = '#ED1727';
-
-        let justifyContent = Platform.OS === "ios" ? 'center' : undefined
+            backgroundColor = styles.buttonDangerBg;
+        else // (default)
+            backgroundColor = styles.badgeBg;
 
         const children = React.Children.map(this.props.children, child => 
             React.cloneElement(child, 
                 {
                     style: {
-                        color: "#fff",
-                        fontSize: 15,
-                        lineHeight: Platform.OS === "ios" ? 20 : 24,
-                        textAlign: "center",
-                        paddingHorizontal: 3,
+                        ...styles.BadgeProps,
                         ...child.props.style
                     },
-                    ...child.props
                 }
             )
         )
 
         return (
-            <View {...this.props} style={{...styles.Badge, backgroundColor, justifyContent, ...this.props.style}}>
-                {children}
-            </View>
+            <ThemeContext.Consumer>
+                {value => 
+                    <View {...this.props} style={{...value.Badge, backgroundColor, ...this.props.style}}>
+                        {children}
+                    </View>
+                }
+            </ThemeContext.Consumer>
         )
     }
 }

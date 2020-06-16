@@ -22,6 +22,7 @@ import Row from './components/Row';
 import SpinKit from './components/SpinKit';
 import Text from './components/Text';
 import Textarea from './components/Textarea';
+import ThemeProvider from './components/ThemeProvider';
 import Toast from './components/Toast';
 import View from './components/View';
 
@@ -50,6 +51,7 @@ export {
     SpinKit,
     Text,
     Textarea,
+    ThemeProvider,
     Toast,
     View
 }

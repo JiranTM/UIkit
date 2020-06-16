@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { View } from 'react-native';
 
-import styles from '../styles';
+import ThemeContext from './themeContext';
 
 export default class Right extends Component {
     render() {
         return (
-            <View {...this.props} style={{ ...styles.Right, ...this.props.style }} />
+            <ThemeContext.Consumer>
+                {value => 
+                    <View {...this.props} style={{ ...value.Right, ...this.props.style }} />
+                }
+            </ThemeContext.Consumer>
         )
     }
-    
 }
