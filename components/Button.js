@@ -71,7 +71,7 @@ export default class Button extends Component {
                             : (backgroundColor === "transparent") 
                                 ? "black" 
                                 : "white",
-                        ...styles.ButtonText,
+                        ...styles.ButtonProps,
                         ...child.props.style
                     },
                 }

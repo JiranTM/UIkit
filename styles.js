@@ -4,7 +4,7 @@ const {height, width} = Dimensions.get('window');
 const vh = height * 0.01;
 const vw = width * 0.01;
 
-const styles = StyleSheet.create({
+const styles = {
     // Anatomy
     Container: {flex: 1},
     Content: {flex: 1},
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     // Button
     Button: {
         paddingVertical: 6, 
+        paddingHorizontal: 16,
         border: "none", 
         height: 45, 
         flexDirection: "row", 
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     brandWarning: '#f0ad4e',
     brandDark: '#000',
     brandLight: '#a9a9a9',
-});
+};
 
 export { height, width, vh, vw };
 
