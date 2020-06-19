@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
-import styles from '../styles';
 import ThemeContext from './themeContext';
 
 export default class Button extends Component {
@@ -10,34 +9,34 @@ export default class Button extends Component {
         const { light, primary, success, info, warning, danger, dark, bordered, transparent, block, full, disabled } = this.props;
         
         if (light) {
-            backgroundColor = styles.buttonLightBg;
-            color = styles.brandLight;
+            backgroundColor = this.context.buttonLightBg;
+            color = this.context.brandLight;
         } else if (primary) {
-            backgroundColor = styles.buttonPrimaryBg;
-            color = styles.brandPrimary;
+            backgroundColor = this.context.buttonPrimaryBg;
+            color = this.context.brandPrimary;
         } else if (success) {
-            backgroundColor = styles.buttonSuccessBg;
-            color = styles.brandSuccess;
+            backgroundColor = this.context.buttonSuccessBg;
+            color = this.context.brandSuccess;
         } else if (info) {
-            backgroundColor = styles.buttonInfoBg;
-            color = styles.brandInfo;
+            backgroundColor = this.context.buttonInfoBg;
+            color = this.context.brandInfo;
         } else if (warning) { 
-            backgroundColor = styles.buttonWarningBg;
-            color = styles.brandWarning;
+            backgroundColor = this.context.buttonWarningBg;
+            color = this.context.brandWarning;
         } else if (danger) {
-            backgroundColor = styles.buttonDangerBg;
-            color = styles.brandDanger;
+            backgroundColor = this.context.buttonDangerBg;
+            color = this.context.brandDanger;
         } else if (dark) {
-            backgroundColor = styles.buttonDarkBg;
-            color = styles.brandDark;
+            backgroundColor = this.context.buttonDarkBg;
+            color = this.context.brandDark;
         } else {
-            backgroundColor = styles.buttonBg;
-            color = styles.brandLight;
+            backgroundColor = this.context.buttonBg;
+            color = this.context.brandLight;
         }
 
         if (disabled) {
             backgroundColor = "transparent";
-            color = styles.buttonDisabledBg;
+            color = this.context.buttonDisabledBg;
         }
         
         let border = "none";
@@ -67,11 +66,11 @@ export default class Button extends Component {
                 {
                     style: {
                         color: (transparent || bordered) 
-                            ? backgroundColor 
+                            ? color 
                             : (backgroundColor === "transparent") 
                                 ? "black" 
                                 : "white",
-                        ...styles.ButtonProps,
+                        ...this.context.ButtonProps,
                         ...child.props.style
                     },
                 }
@@ -79,20 +78,18 @@ export default class Button extends Component {
         )
 
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <TouchableOpacity {...this.props} 
-                        style={{...value.Button, 
-                            backgroundColor, 
-                            border, 
-                            flex,
-                            justifyContent, 
-                            alignSelf,
-                        ...this.props.style}}>
-                        {children}
-                    </TouchableOpacity>
-                }
-            </ThemeContext.Consumer>
+            <TouchableOpacity {...this.props} 
+                style={{...this.context.Button, 
+                    backgroundColor, 
+                    border, 
+                    flex,
+                    justifyContent, 
+                    alignSelf,
+                ...this.props.style}}>
+                {children}
+            </TouchableOpacity>
         )
     }
 }
+
+Button.contextType = ThemeContext;

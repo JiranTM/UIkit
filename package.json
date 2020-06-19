@@ -11,6 +11,8 @@
     "compile": "babel src --out-dir dist"
   },
   "dependencies": {
+    "fs-extra": "^9.0.1",
+    "print-message": "^3.0.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-spinkit": "^1.5.0",
     "react-native-toast-native": "^1.2.1",

@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 
 const {height, width} = Dimensions.get('window');
 const vh = height * 0.01;
@@ -78,7 +78,7 @@ const styles = {
     buttonDarkBg: "#000",
 
     // Radio
-    Radio: {color: '#3F51B5'},
+    Radio: {color: '#3F51B5', fontSize: 23},
 
     // Layout
     Row: {flexDirection: "row", flex: 1, alignSelf: "stretch"},

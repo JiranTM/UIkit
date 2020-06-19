@@ -7,14 +7,16 @@ import ThemeContext from './themeContext';
 export default class Radio extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <TouchableOpacity {...this.props}>
-                        <Icon type="FontAwesome" name={this.props.selected ? "check-square" : "square-o"} style={{...value.Radio}} selected={this.props.selected} />
-                    </TouchableOpacity>
-                }
-            </ThemeContext.Consumer>
-            
+            <TouchableOpacity {...this.props}>
+                <Icon 
+                    type="MaterialIcons" 
+                    name={this.props.selected ? "radio-button-checked" : "radio-button-unchecked"} 
+                    style={{...this.context.Radio}} 
+                    selected={this.props.selected} 
+                />
+            </TouchableOpacity>
         )
     }
 }
+
+Radio.contextType = ThemeContext;

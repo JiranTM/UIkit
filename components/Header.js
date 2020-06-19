@@ -6,11 +6,9 @@ import ThemeContext from './themeContext';
 export default class Header extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value =>
-                    <View {...this.props} style={{ ...value.Header, ...this.props.style }}/>
-                }
-            </ThemeContext.Consumer>
+            <View {...this.props} style={{ ...this.context.Header, ...this.props.style }}/>
         )
     }
 }
+
+Header.contextType = ThemeContext;

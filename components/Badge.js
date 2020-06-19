@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {View, Platform} from 'react-native';
+import {View} from 'react-native';
 
-import styles from '../styles';
 import ThemeContext from './themeContext';
 
 export default class Badge extends Component {
@@ -10,23 +9,23 @@ export default class Badge extends Component {
         const {primary, warning, info, success, danger} = this.props;
 
         if (primary)
-            backgroundColor = styles.buttonPrimaryBg;
+            backgroundColor = this.context.buttonPrimaryBg;
         else if (warning)
-            backgroundColor = styles.buttonWarningBg;
+            backgroundColor = this.context.buttonWarningBg;
         else if (info)
-            backgroundColor = styles.buttonInfoBg;
+            backgroundColor = this.context.buttonInfoBg;
         else if (success)
-            backgroundColor = styles.buttonSuccessBg;
+            backgroundColor = this.context.buttonSuccessBg;
         else if (danger)
-            backgroundColor = styles.buttonDangerBg;
+            backgroundColor = this.context.buttonDangerBg;
         else // (default)
-            backgroundColor = styles.badgeBg;
+            backgroundColor = this.context.badgeBg;
 
         const children = React.Children.map(this.props.children, child => 
             React.cloneElement(child, 
                 {
                     style: {
-                        ...styles.BadgeProps,
+                        ...this.context.BadgeProps,
                         ...child.props.style
                     },
                 }
@@ -34,13 +33,11 @@ export default class Badge extends Component {
         )
 
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <View {...this.props} style={{...value.Badge, backgroundColor, ...this.props.style}}>
-                        {children}
-                    </View>
-                }
-            </ThemeContext.Consumer>
+            <View {...this.props} style={{...this.context.Badge, backgroundColor, ...this.props.style}}>
+                {children}
+            </View>
         )
     }
 }
+
+Badge.contextType = ThemeContext;

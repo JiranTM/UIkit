@@ -8,17 +8,15 @@ export default class Textarea extends Component {
         const {placeholderTextColor, disabled} = this.props;
 
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <TextInput 
-                        multiline 
-                        placeholderTextColor={placeholderTextColor ? placeholderTextColor : "#575757"} 
-                        editable={!disabled} 
-                        style={{...value.Textarea, ...this.props.style}}
-                        {...this.props} 
-                    />
-                }
-            </ThemeContext.Consumer>
+            <TextInput 
+                multiline 
+                placeholderTextColor={placeholderTextColor ? placeholderTextColor : "#575757"} 
+                editable={!disabled} 
+                style={{...this.context.Textarea, ...this.props.style}}
+                {...this.props} 
+            />
         )
     }
 }
+
+Textarea.contextType = ThemeContext;

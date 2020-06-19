@@ -37,11 +37,9 @@ export default class Icon extends Component {
         }
 
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <this.Icon {...this.props} style={{...value.Icon, ...this.props.style}} />
-                }
-            </ThemeContext.Consumer>
+            <this.Icon {...this.props} style={{...this.context.Icon, ...this.props.style}} />
         )
     }
 }
+
+Icon.contextType = ThemeContext;

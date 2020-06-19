@@ -6,11 +6,9 @@ import ThemeContext from './themeContext';
 export default class Text extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <RNText {...this.props} style={{ ...value.Text, ...this.props.style }} />
-                }
-            </ThemeContext.Consumer>
+            <RNText {...this.props} style={{ ...this.context.Text, ...this.props.style }} />
         )
     }
 }
+
+Text.contextType = ThemeContext;

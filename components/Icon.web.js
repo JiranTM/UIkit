@@ -7,11 +7,9 @@ import ThemeContext from './themeContext';
 export default class Icon extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <IconWeb {...this.props} style={{...value.Icon, ...this.props.style}} font={this.props.type} />
-                }
-            </ThemeContext.Consumer>
+            <IconWeb {...this.props} style={{...this.context.Icon, ...this.props.style}} font={this.props.type} />
         )
     }
 };
+
+Icon.contextType = ThemeContext;

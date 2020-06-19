@@ -10,14 +10,11 @@ export default class Row extends Component {
         }
 
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <View {...this.props} style={{...value.Row, ...size, ...this.props.style }}>
-                        {this.props.children}
-                    </View>
-                }
-            </ThemeContext.Consumer>
-            
+            <View {...this.props} style={{...this.context.Row, ...size, ...this.props.style }}>
+                {this.props.children}
+            </View>
         )
     }
 }
+
+Row.contextType = ThemeContext;

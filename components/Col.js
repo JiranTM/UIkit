@@ -10,14 +10,11 @@ export default class Col extends Component {
         }
         
         return (
-            <ThemeContext.Consumer>
-                {value =>
-                    <View {...this.props} style={{ ...value.Col, ...size, ...this.props.style }}>
-                        {this.props.children}
-                    </View>
-                }
-            </ThemeContext.Consumer>
-            
+            <View {...this.props} style={{ ...this.context.Col, ...size, ...this.props.style }}>
+                {this.props.children}
+            </View>
         )
     }
 }
+
+Col.contextType = ThemeContext;

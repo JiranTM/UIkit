@@ -6,13 +6,10 @@ import ThemeContext from './themeContext';
 export default class Left extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <View {...this.props} style={{ ...value.Left, ...this.props.style }} />
-                }
-            </ThemeContext.Consumer>
-            
+            <View {...this.props} style={{ ...this.context.Left, ...this.props.style }} />
         )
     }
     
 }
+
+Left.contextType = ThemeContext;

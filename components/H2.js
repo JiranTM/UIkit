@@ -6,11 +6,9 @@ import ThemeContext from './themeContext';
 export default class H2 extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <Text {...this.props} style={{ ...value.H2, ...this.props.style }} />
-                }
-            </ThemeContext.Consumer>
+            <Text {...this.props} style={{ ...this.context.H2, ...this.props.style }} />
         )
     }
 }
+
+H2.contextType = ThemeContext;

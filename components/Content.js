@@ -7,15 +7,13 @@ import ThemeContext from './themeContext';
 export default class Content extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value => 
-                    <SafeAreaView style={{ ...value.Content }}>
-                        <KeyboardAwareScrollView>
-                            {...this.props}
-                        </KeyboardAwareScrollView>
-                    </SafeAreaView>
-                }
-            </ThemeContext.Consumer>
+            <SafeAreaView style={{ ...this.context.Content }}>
+                <KeyboardAwareScrollView>
+                    {...this.props}
+                </KeyboardAwareScrollView>
+            </SafeAreaView>
         )
     }
 }
+
+Content.contextType = ThemeContext;

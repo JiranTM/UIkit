@@ -6,11 +6,9 @@ import ThemeContext from "./themeContext";
 export default class Input extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
-                {value =>
-                    <TextInput {...this.props} style={{...value.Input, ...this.props.style}} />
-                }
-            </ThemeContext.Consumer>
+            <TextInput {...this.props} style={{...this.context.Input, ...this.props.style}} />
         )
     }
 }
+
+Input.contextType = ThemeContext;
