@@ -10,6 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "babel src --out-dir dist"
   },
+  "bin": {
+    "get-theme": "./getTheme.js"
+  },
   "dependencies": {
     "fs-extra": "^9.0.1",
     "print-message": "^3.0.1",

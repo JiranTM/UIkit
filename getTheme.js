@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
+var fs = require("fs-extra");
+var path = require("path");
 
-import printMessage from 'print-message';
+var printMessage = require('print-message');
 
 try {
     fs.copySync(
