@@ -35,8 +35,8 @@ export default class Button extends Component {
         }
 
         if (disabled) {
-            backgroundColor = "transparent";
-            color = this.context.buttonDisabledBg;
+            backgroundColor = this.context.buttonDisabledBg;
+            color = this.context.brandLight;
         }
         
         let border = "none";
