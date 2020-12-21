@@ -1,3 +1,4 @@
+import Alert from './components/Alert';
 import Badge from './components/Badge';
 import Body from './components/Body';
 import Button from './components/Button';
@@ -15,6 +16,8 @@ import Item from './components/Item';
 import Label from './components/Label';
 import Left from './components/Left';
 import List from './components/List';
+import Modal from './components/Modal';
+import Picker from './components/Picker';
 import Radio from './components/Radio';
 import Right from './components/Right';
 import Root from './components/Root';
@@ -27,6 +30,7 @@ import Toast from './components/Toast';
 import View from './components/View';
 
 export {
+    Alert,
     Badge,
     Body,
     Button,
@@ -44,6 +48,8 @@ export {
     Label,
     Left,
     List,
+    Modal,
+    Picker,
     Radio,
     Right,
     Root,
