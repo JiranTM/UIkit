@@ -26,6 +26,7 @@ import SpinKit from './components/SpinKit';
 import Text from './components/Text';
 import Textarea from './components/Textarea';
 import ThemeProvider from './components/ThemeProvider';
+import Title from './components/Title';
 import Toast from './components/Toast';
 import View from './components/View';
 
@@ -58,6 +59,7 @@ export {
     Text,
     Textarea,
     ThemeProvider,
+    Title,
     Toast,
     View
 }
