@@ -18,27 +18,27 @@ import ThemeContext from './themeContext';
 
 export default class Icon extends Component {
     render() {
-        switch(this.props.type) {
-            case    'AntDesign':               this.Icon = AntDesign;              break;
-            case    'Entypo':                  this.Icon = Entypo;                 break;
-            case    'EvilIcons':               this.Icon = EvilIcons;              break;
-            case    'Feather':                 this.Icon = Feather;                break;
-            case    'FontAwesome':             this.Icon = FontAwesome;            break;
-            case    'FontAwesome5':            this.Icon = FontAwesome5;           break;
-            case    'Fontisto':                this.Icon = Fontisto;               break;
-            case    'Foundation':              this.Icon = Foundation;             break;
-            case    'Ionicons':                this.Icon = Ionicons;               break;
-            case    'MaterialCommunityIcons':  this.Icon = MaterialCommunityIcons; break;
-            case    'MaterialIcons':           this.Icon = MaterialIcons;          break;
-            case    'Octicons':                this.Icon = Octicons;               break;
-            case    'SimpleLineIcons':         this.Icon = SimpleLineIcons;        break;
-            case    'Zocial':                  this.Icon = Zocial;                 break;
-            default:                           this.Icon = Ionicons;
+        let Ic = Ionicons;
+
+        switch (this.props.type) {
+            case 'AntDesign': Ic = AntDesign; break;
+            case 'Entypo': Ic = Entypo; break;
+            case 'EvilIcons': Ic = EvilIcons; break;
+            case 'Feather': Ic = Feather; break;
+            case 'FontAwesome': Ic = FontAwesome; break;
+            case 'FontAwesome5': Ic = FontAwesome5; break;
+            case 'Fontisto': Ic = Fontisto; break;
+            case 'Foundation': Ic = Foundation; break;
+            case 'Ionicons': Ic = Ionicons; break;
+            case 'MaterialCommunityIcons': Ic = MaterialCommunityIcons; break;
+            case 'MaterialIcons': Ic = MaterialIcons; break;
+            case 'Octicons': Ic = Octicons; break;
+            case 'SimpleLineIcons': Ic = SimpleLineIcons; break;
+            case 'Zocial': Ic = Zocial; break;
+            default: Ic = Ionicons;
         }
 
-        return (
-            <this.Icon {...this.props} style={{...this.context.Icon, ...this.props.style}} />
-        )
+        return (<Ic {...this.props} style={{ ...this.context.Icon, ...this.props.style }} />)
     }
 }
 

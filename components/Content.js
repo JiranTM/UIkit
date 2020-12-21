@@ -9,7 +9,7 @@ export default class Content extends Component {
         return (
             <SafeAreaView style={{ ...this.context.Content }}>
                 <KeyboardAwareScrollView>
-                    {...this.props}
+                    {this.props.children}
                 </KeyboardAwareScrollView>
             </SafeAreaView>
         )

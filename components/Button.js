@@ -39,14 +39,17 @@ export default class Button extends Component {
             color = this.context.brandLight;
         }
         
-        let border = "none";
+        let borderWidth = null, borderColor = null;
 
         let justifyContent = 'space-between'
 
         let alignSelf = 'flex-start'
 
-        if (bordered)
-            border = `1px solid ${backgroundColor}`;
+        if (bordered) {
+            borderWidth = 1;
+            borderColor = backgroundColor;
+        }
+            
 
         if (transparent || bordered) {
             backgroundColor = 'transparent'
@@ -79,9 +82,10 @@ export default class Button extends Component {
 
         return (
             <TouchableOpacity {...this.props} 
-                style={{...this.context.Button, 
+                style={{...this.context[bordered ? "BorderedButton" : "Button"], 
                     backgroundColor, 
-                    border, 
+                    borderWidth,
+                    borderColor, 
                     flex,
                     justifyContent, 
                     alignSelf,
